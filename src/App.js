@@ -1,10 +1,17 @@
 import './App.css';
+import {Routes , Route} from 'react-router-dom';
+import Exchanges from './Components/Exchanges/Exchanges';
+import CoinDetails from './Components/CoinDetails/CoinDetails';
+import Coins from './Components/Coins/Coins';
 
 function App() {
   return (
-    <div className="App">
-    
-    </div>
+    <Routes>
+      <Route path='/' element={<Exchanges/>}/>
+      <Route path='/coins' element={<Coins/>}/>
+      <Route path='/coindetails/:id' element={<CoinDetails/>}/>
+
+    </Routes>
   );
 }
 

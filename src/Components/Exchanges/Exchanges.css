@@ -1,0 +1,19 @@
+.exch-card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 1%;
+}
+.ex-img{
+    width: 20%;
+}
+.ex-name{
+    width: 20%;
+}
+.ex-price{
+    width: 20%;
+}
+.ex-rank{
+    width: 20%;
+}
