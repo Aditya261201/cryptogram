@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
+import {Link} from 'react-router-dom'
 import axios from "axios";
 import Loading from '../Loading';
 import './Coins.css';
@@ -40,12 +41,15 @@ const Coins = () => {
 
                             coins.map((coindata, i) => {
                                 return (
-                                    <div className="coin-card" key={i}>
-                                        <div className="coin-img"><img src={coindata.image} height={60}/></div>
-                                        <div className="coin-name">{coindata.name}</div>
-                                        <div className="coin-price">{currencySymbol} {coindata.current_price.toFixed(0)}</div>
-                                        <div className="coin-profitloss" style={coindata.price_change_percentage_24h > 0 ? { color: "green"} : {color:"red"}}>{coindata.price_change_percentage_24h}</div>
-                                    </div>
+
+                                    <Link to={`/coins/${coindata.id}`} style={{color:'white', textDecoration:'none'}}>
+                                        <div className="coin-card" key={i}>
+                                            <div className="coin-img"><img src={coindata.image} height={60} /></div>
+                                            <div className="coin-name">{coindata.name}</div>
+                                            <div className="coin-price">{currencySymbol} {coindata.current_price.toFixed(0)}</div>
+                                            <div className="coin-profitloss" style={coindata.price_change_percentage_24h > 0 ? { color: "green" } : { color: "red" }}>{coindata.price_change_percentage_24h}</div>
+                                        </div>
+                                    </Link>
                                 )
                             })
                         }
