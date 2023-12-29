@@ -26,5 +26,6 @@
 .curr-last ul li a{
     padding: 20px;
     text-decoration: none;
-    color: white;
+    color: black;
+    text-decoration: underline;
 }

@@ -10,6 +10,7 @@ const Coins = () => {
     const [loading, setloading] = useState(true);
     const [currency, setcurrency] = useState('inr');
     const [coins, setcoins] = useState([]);
+    const [search, setsearch] = useState('');
     const currencySymbol = currency === 'inr' ? '₹' : '$'
 
     const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}`;
@@ -33,13 +34,22 @@ const Coins = () => {
                 loading ? <Loading /> :
                     <>
                         <Header />
+                        <div className="searchbox">
+                            <input type='text' placeholder='Enter coin name here ...' onChange={(e)=>setsearch(e.target.value)}/>
+                        </div>
                         <div className="btns">
                             <button onClick={()=>{setcurrency('inr')}}>INR</button>
                             <button onClick={() => {setcurrency('usd')}}>USD</button>
                         </div>
                         {
 
-                            coins.map((coindata, i) => {
+                            coins.filter((data)=>{
+                                if(data==''){
+                                    return data;
+                                }else if(data.name.toLowerCase().includes(search.toLowerCase())){
+                                    return data;
+                                }
+                            }).map((coindata, i) => {
                                 return (
 
                                     <Link to={`/coins/${coindata.id}`} style={{color:'white', textDecoration:'none'}}>
