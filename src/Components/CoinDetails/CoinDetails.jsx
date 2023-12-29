@@ -5,6 +5,7 @@ import axios from "axios";
 import { useParams } from 'react-router-dom';
 import './Coindetails.css';
 import { BsArrowUpRightCircleFill, BsArrowDownLeftCircleFill } from "react-icons/bs";
+import Chart from '../Chart/Chart';
 
 const CoinDetails = () => {
     const { id } = useParams();
@@ -33,23 +34,28 @@ const CoinDetails = () => {
             {
                 loading ? <Loading /> :
                     <>
-                        <div className="coindetails">
-                            <div className="btn">
-                                <button onClick={() => { setcurrency('inr') }}>INR</button>
-                                <button onClick={() => { setcurrency('usd') }}>USD</button>
+                        <div className="coininfo">
+                            <div className="coindetails">
+                                <div className="btn">
+                                    <button onClick={() => { setcurrency('inr') }}>INR</button>
+                                    <button onClick={() => { setcurrency('usd') }}>USD</button>
+                                </div>
+                                <div className="time">Last Updated : {coin.last_updated}</div>
+                                <div className="coin-img"><img height={200} src={coin.image.large} /></div>
+                                <div className="coin-name">{coin.name}</div>
+                                <div className="coin-price">
+                                    {currency == 'inr' ? "₹" : "$"}
+                                    {coin.market_data.current_price[currency]}</div>
+                                <div className="coin-profit">
+                                    {profit ? <BsArrowUpRightCircleFill color='green' /> : <BsArrowDownLeftCircleFill color='red' />}
+                                    {coin.market_data.price_change_percentage_24h}%
+                                </div>
+                                <div className="coin-mkt-rank">#{coin.market_cap_rank}</div>
+                                <div className="coin-desc"><p>{coin.description.en.split('.')[0]}</p></div>
                             </div>
-                            <div className="time">Last Updated : {coin.last_updated}</div>
-                            <div className="coin-img"><img height={200} src={coin.image.large} /></div>
-                            <div className="coin-name">{coin.name}</div>
-                            <div className="coin-price">
-                            {currency == 'inr' ? "₹" : "$"}
-                            {coin.market_data.current_price[currency]}</div>
-                            <div className="coin-profit">
-                                {profit ? <BsArrowUpRightCircleFill color='green' /> : <BsArrowDownLeftCircleFill color='red'/>}
-                                {coin.market_data.price_change_percentage_24h}%
+                            <div>
+                                <Chart currency={currency} />
                             </div>
-                            <div className="coin-mkt-rank">#{coin.market_cap_rank}</div>
-                            <div className="coin-desc"><p>{coin.description.en.split('.')[0]}</p></div>
                         </div>
                     </>
             }

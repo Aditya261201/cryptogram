@@ -1,3 +1,8 @@
+.coininfo{
+    display: flex;
+    
+}
+
 .btn button {
     height: 2rem;
     padding: 4px;
