@@ -1,3 +1,7 @@
+.heading {
+    text-align: center;
+    text-decoration: underline;
+}
 .searchbox{
     height: 2rem;
     width: 20rem;
@@ -36,9 +40,11 @@
     width: 80vw;
     margin-left: 10%;
     margin-right: 10%;
-    /* border: 2px solid black; */
+    
 }
-
+.coin-img{
+    height: 10vh;
+}
 .coin-img img {
     margin-bottom: 15px;
 
@@ -51,14 +57,83 @@
     padding-bottom: 3%;
     color: black;
 }
+.coin-name:hover {
+    color: rgb(210, 82, 125);
+    text-decoration: underline;
+}
 
 .coin-price {
     width: 20%;
     text-align: center;
     color: black;
 }
+.coin-price:hover {
+    color: rgb(210, 82, 125);
+    text-decoration: underline;
+}
 
 .coin-profitloss {
     width: 20%;
     text-shadow: 0px 5px 10px #474054;
+}
+
+@media only screen and (max-width: 600px) {
+.searchbox {
+        height: 2rem;
+        width: 25rem;
+        margin-left: 10%;
+    }
+
+    .searchbox input {
+        height: 2rem;
+        width: 15rem;
+        padding-left: 20px;
+    }
+
+    .btns {
+        margin-top: 10px;
+    }
+
+    .btns button {
+        height: 2rem;
+        padding: 4px;
+        margin-right: 0px;
+        width: 4rem;
+    }
+.coin-card {
+    width: 100vw;
+    margin-left: 20%;
+    margin-right: 0%;
+    justify-content: space-evenly;
+
+}
+
+.coin-img {
+    height: 10vh;
+    width: 20%;
+}
+
+.coin-img img {
+    margin-bottom: 15px;
+}
+
+.coin-name {
+    display: flex;
+    text-align: center;
+    width: 30%;
+    justify-content: center;
+    padding-bottom: 3%;
+    color: black;
+}
+
+.coin-price {
+    font-size: 10px;
+    width: 25%;
+}
+
+.coin-profitloss {
+    font-weight: bold;
+    font-size: 10px;
+    width: 25%;
+}
 }

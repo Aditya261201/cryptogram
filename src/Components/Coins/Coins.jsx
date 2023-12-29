@@ -41,6 +41,7 @@ const Coins = () => {
                             <button onClick={()=>{setcurrency('inr')}}>INR</button>
                             <button onClick={() => {setcurrency('usd')}}>USD</button>
                         </div>
+                        <h2 className='heading'>Coins</h2>
                         {
 
                             coins.filter((data)=>{
@@ -54,7 +55,7 @@ const Coins = () => {
 
                                     <Link to={`/coins/${coindata.id}`} style={{color:'white', textDecoration:'none'}}>
                                         <div className="coin-card" key={i}>
-                                            <div className="coin-img"><img src={coindata.image} height={60} /></div>
+                                            <div className="coin-img"><img src={coindata.image} height={"50px"} /></div>
                                             <div className="coin-name">{coindata.name}</div>
                                             <div className="coin-price">{currencySymbol} {coindata.current_price.toFixed(0)}</div>
                                             <div className="coin-profitloss" style={coindata.price_change_percentage_24h > 0 ? { color: "green" } : { color: "red" }}>{coindata.price_change_percentage_24h}</div>

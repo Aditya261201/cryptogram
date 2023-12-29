@@ -41,17 +41,17 @@ const CoinDetails = () => {
                                     <button onClick={() => { setcurrency('usd') }}>USD</button>
                                 </div>
                                 <div className="time">Last Updated : {coin.last_updated}</div>
-                                <div className="coin-img"><img height={200} src={coin.image.large} /></div>
-                                <div className="coin-name">{coin.name}</div>
-                                <div className="coin-price">
+                                <div className="coind-img"><img src={coin.image.large} /></div>
+                                <div className="coind-name">{coin.name}</div>
+                                <div className="coind-price">
                                     {currency == 'inr' ? "₹" : "$"}
                                     {coin.market_data.current_price[currency]}</div>
-                                <div className="coin-profit">
+                                <div className="coind-profit">
                                     {profit ? <BsArrowUpRightCircleFill color='green' /> : <BsArrowDownLeftCircleFill color='red' />}
                                     {coin.market_data.price_change_percentage_24h}%
                                 </div>
-                                <div className="coin-mkt-rank">#{coin.market_cap_rank}</div>
-                                <div className="coin-desc"><p>{coin.description.en.split('.')[0]}</p></div>
+                                <div className="coind-mkt-rank">#{coin.market_cap_rank}</div>
+                                <div className="coind-desc"><p>{coin.description.en.split('.')[0]}</p></div>
                             </div>
                             <div>
                                 <Chart currency={currency} />

@@ -30,6 +30,7 @@ const Exchanges = () => {
                 loading ? <Loading /> : 
                     <>
                         <Header />
+                        <h2 className='heading'>Exchanges</h2>
                         {
                             
                             exchanges.map((item, i) => {
@@ -38,7 +39,7 @@ const Exchanges = () => {
                                         <div className="ex-img"><img src={item.image} /></div>
                                         <div className="ex-name">{item.name}</div>
                                         <div className="ex-price">{item.trade_volume_24h_btc.toFixed(0)}</div>
-                                        <div className="ex-rank">{item.trust_score_rank}</div>
+                                        <div className="ex-rank">#{item.trust_score_rank}</div>
                                     </div>
                                 )
                             })
